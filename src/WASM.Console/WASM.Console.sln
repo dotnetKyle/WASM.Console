@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WASM.Console", "WASM.Console.csproj", "{626297E6-6F83-4F84-B74B-704FF9340B81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemoApp", "..\BlazorDemoApp\BlazorDemoApp.csproj", "{6E6C03D7-3392-40F4-805F-449D8851386B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{626297E6-6F83-4F84-B74B-704FF9340B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626297E6-6F83-4F84-B74B-704FF9340B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626297E6-6F83-4F84-B74B-704FF9340B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626297E6-6F83-4F84-B74B-704FF9340B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6C03D7-3392-40F4-805F-449D8851386B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6C03D7-3392-40F4-805F-449D8851386B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6C03D7-3392-40F4-805F-449D8851386B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6C03D7-3392-40F4-805F-449D8851386B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FC9FD13-324D-46AD-A956-AE58EF61F376}
+	EndGlobalSection
+EndGlobal

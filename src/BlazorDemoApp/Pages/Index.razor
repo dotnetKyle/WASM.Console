@@ -1,0 +1,33 @@
+﻿@page "/"
+
+@inject WASM.Console.BrowserConsole console
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            console.Log("A log message");
+            console.Log("A log message");
+            console.Log("A log message");
+            console.Log("A log message");
+            console.Log("A log message");
+            console.Clear();
+            console.Log("A log message");
+            console.Debug("A debug message");
+            console.Info("An info message");
+            console.Warn("A warning message");
+            console.Error("An error message");
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}
