@@ -29,10 +29,14 @@ Welcome to your new app.
 
             console.Log("A log message");
             console.Log("A log message");
-            console.Group();
-            console.Log("A log message");
-            console.Log("A log message");
-            console.GroupEnd();
+            
+            using(console.GroupAsync())
+            {
+                console.Log("A log message");
+                console.Log("A log message");
+            }
+
+
             console.Log("A log message");
             console.GroupCollapsed("With Label");
             console.Log("A log message");
@@ -44,10 +48,13 @@ Welcome to your new app.
             // output a trace
             console.Trace();
 
-            console.Log("A log message");
-            console.Info("An info message");
-            console.Warn("A warning message");
-            console.Error("An error message");
+            using(await console.GroupAsync("Grouped Messages"))
+            {
+                console.Log("A log message");
+                console.Info("An info message");
+                console.Warn("A warning message");
+                console.Error("An error message");
+            }
 
             console.TimeEnd("timer1");
 
