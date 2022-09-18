@@ -16,16 +16,53 @@ Welcome to your new app.
         if(firstRender)
         {
             console.Log("A log message");
+
+
             console.Log("A log message");
             console.Log("A log message");
             console.Log("A log message");
             console.Log("A log message");
+            
             console.Clear();
+
+            console.Time("timer1");
+
+            console.Log("A log message");
+            console.Log("A log message");
+            console.Group();
+            console.Log("A log message");
+            console.Log("A log message");
+            console.GroupEnd();
+            console.Log("A log message");
+            console.GroupCollapsed("With Label");
             console.Log("A log message");
             console.Debug("A debug message");
+            console.Log("A log message");
+            console.GroupEnd("With Label");
+            console.Log("A log message");
+            
+            // output a trace
+            console.Trace();
+
+            console.Log("A log message");
             console.Info("An info message");
             console.Warn("A warning message");
             console.Error("An error message");
+
+            console.TimeEnd("timer1");
+
+            console.Dir(new { Prop1 = "test1", Prop2 = "test2" });
+
+            console.Table(
+                new TestObject[]
+                {
+                    new TestObject{ Test1 = "test1a", Test2 = "test1b" },
+                    new TestObject{ Test1 = "test2a", Test2 = "test2b" },
+                    new TestObject{ Test1 = "test3a", Test2 = "test3b" },
+                    new TestObject{ Test1 = "test3a", Test2 = "test3b" },
+                    new TestObject{ Test1 = "test4a", Test2 = "test4b" }
+                }
+            );
         }
 
         await base.OnAfterRenderAsync(firstRender);
