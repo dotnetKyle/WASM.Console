@@ -1,8 +1,6 @@
 ﻿using Microsoft.JSInterop;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection.Emit;
 using System.Threading.Tasks;
 
 namespace WASM.Console;
@@ -20,7 +18,7 @@ public class BrowserConsole
     /// Output a typical log message to the browser console.
     /// </summary>
     /// <param name="message">The message to output</param>
-    public async void Log(string message)
+    public async Task LogAsync(string message)
         => await js.InvokeVoidAsync("console.log", message);
 
     /// <summary>
@@ -28,80 +26,68 @@ public class BrowserConsole
     /// <para>Debug messages usually are hidden in the browser console, you must set the browser to verbose to see them.</para>
     /// </summary>
     /// <param name="message">The message to output</param>
-    public async void Debug(string message)
+    public async Task DebugAsync(string message)
         => await js.InvokeVoidAsync("console.debug", message);
 
     /// <summary>
     /// Output an error message to the browser console.
     /// </summary>
     /// <param name="message">The message to output</param>
-    public async void Error(string message)
+    public async Task ErrorAsync(string message)
         =>  await js.InvokeVoidAsync("console.error", message);
 
     /// <summary>
     /// Output an Info message to the browser console.
     /// </summary>
     /// <param name="message">The message to output</param>
-    public async void Info(string message)
+    public async Task InfoAsync(string message)
         => await js.InvokeVoidAsync("console.info", message);
 
     /// <summary>
     /// Output a Warn message to the browser console.
     /// </summary>
     /// <param name="message">The message to output</param>
-    public async void Warn(string message)
+    public async Task WarnAsync(string message)
         => await js.InvokeVoidAsync("console.warn", message);
 
     /// <summary>
     /// Clear the browser console.
     /// </summary>
-    public async void Clear()
+    public async Task ClearAsync()
         => await js.InvokeVoidAsync("console.clear");
 
     /// <summary>
     /// Count the number of times this counter has been called.
     /// </summary>
-    public async void Count()
+    public async Task CountAsync()
         => await js.InvokeVoidAsync("console.count");
 
     /// <summary>
     /// Count the number of times this counter has been called (with a specific label).
     /// </summary>
     /// <param name="label"></param>
-    public async void Count(string label)
+    public async Task CountAsync(string label)
         => await js.InvokeVoidAsync("console.count", label);
 
     /// <summary>
     /// Reset the default counter (no label).
     /// </summary>
-    public async void CountReset()
+    public async Task CountResetAsync()
         => await js.InvokeVoidAsync("console.countReset");
 
     /// <summary>
     /// Reset a specific counter (using a label).
     /// </summary>
     /// <param name="label"></param>
-    public async void CountReset(string label)
+    public async Task CountResetAsync(string label)
         => await js.InvokeVoidAsync("console.countReset", label);
 
     /// <summary>
     /// Print out all of the properties of an object to the console.
     /// </summary>
     /// <param name="obj">The object to print out</param>
-    public async void Dir(object obj)
+    public async Task DirAsync(object obj)
         => await js.InvokeVoidAsync("console.dir", obj);
-
-    /// <summary>
-    /// Group a series of console messages together.
-    /// </summary>
-    public async void Group()
-        => await js.InvokeVoidAsync("console.group");
-
-    /// <summary>
-    /// Group a series of console messages together with a specific label.
-    /// </summary>
-    public async void Group(string label)
-        => await js.InvokeVoidAsync("console.group", label);
 
     /// <summary>
     /// Group a series of console messages together.
@@ -127,28 +113,22 @@ public class BrowserConsole
     /// <summary>
     /// Ends the current group
     /// </summary>
-    public async void GroupEnd()
+    public async Task GroupEndAsync()
         => await js.InvokeVoidAsync("console.groupEnd");
 
     /// <summary>
     /// Ends a specific group that has a label.
     /// </summary>
     /// <param name="label">The label of the group to end.</param>
-    public async void GroupEnd(string label)
+    public async Task GroupEndAsync(string label)
         => await js.InvokeVoidAsync("console.groupEnd", label);
 
     /// <summary>
-    /// Start a group already collapsed.
+    /// Ends a specific group that has a label.
     /// </summary>
-    public async void GroupCollapsed()
-            => await js.InvokeVoidAsync("console.groupCollapsed");
-
-    /// <summary>
-    /// Start a group already collapsed using a label.
-    /// </summary>
-    /// <param name="label">The label to use for the group.</param>
-    public async void GroupCollapsed(string label)
-        => await js.InvokeVoidAsync("console.groupCollapsed", label);
+    /// <param name="label">The label of the group to end.</param>
+    public async Task GroupEndAsync(GroupScope groupScope)
+        => await js.InvokeVoidAsync("console.groupEnd", groupScope.Label);
 
     /// <summary>
     /// Start a group that automatically ends itself.
@@ -175,7 +155,7 @@ public class BrowserConsole
     /// Print a table of objects.
     /// </summary>
     /// <param name="objs">The objects to print up.</param>
-    public async void Table(IEnumerable<object> objs)
+    public async Task TableAsync(IEnumerable<object> objs)
         => await js.InvokeVoidAsync("console.table", objs);
 
     /// <summary>
@@ -183,26 +163,26 @@ public class BrowserConsole
     /// </summary>
     /// <typeparam name="TObject">The type of object.</typeparam>
     /// <param name="objs">The objects to print up.</param>
-    public async void Table<TObject>(IEnumerable<TObject> objs)
+    public async Task TableAsync<TObject>(IEnumerable<TObject> objs)
         => await js.InvokeVoidAsync("console.table", objs);
 
     /// <summary>
     /// Start a timer.
     /// </summary>
     /// <param name="label">The label to use for the timer.</param>
-    public async void Time(string label)
+    public async Task TimeAsync(string label)
         => await js.InvokeVoidAsync("console.time", label);
 
     /// <summary>
     /// Start a timer.
     /// </summary>
     /// <param name="label">The label to use for the timer.</param>
-    public async void TimeEnd(string label)
+    public async Task TimeEndAsync(string label)
         => await js.InvokeVoidAsync("console.timeEnd", label);
 
     /// <summary>
     /// Print out a browser stack trace.
     /// </summary>
-    public async void Trace()
+    public async Task TraceAsync()
         => await js.InvokeVoidAsync("console.trace");
 }

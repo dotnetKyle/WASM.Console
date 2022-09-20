@@ -5,25 +5,25 @@ namespace WASM.Console;
 
 public class GroupScope : IDisposable
 {
-    readonly string? label;
+    public string? Label { get; init; }
     readonly IJSRuntime js;
 
     public GroupScope(IJSRuntime js, string label)
     {
         this.js = js;
-        this.label = label;
+        this.Label = label;
     }
     public GroupScope(IJSRuntime js)
     {
         this.js = js;
-        label = null;
+        Label = null;
     }
 
     public async void Dispose()
     {
-        if (label is null)
+        if (Label is null)
             await js.InvokeVoidAsync("console.groupEnd");
         else
-            await js.InvokeVoidAsync("console.groupEnd", label);
+            await js.InvokeVoidAsync("console.groupEnd", Label);
     }
 }

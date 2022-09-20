@@ -15,52 +15,49 @@ Welcome to your new app.
     {
         if(firstRender)
         {
-            console.Log("A log message");
-
-
-            console.Log("A log message");
-            console.Log("A log message");
-            console.Log("A log message");
-            console.Log("A log message");
+            await console.LogAsync("A log message");
+            await console.LogAsync("A log message");
+            await console.LogAsync("A log message");
+            await console.LogAsync("A log message");
+            await console.LogAsync("A log message");
             
-            console.Clear();
+            await console.ClearAsync();
 
-            console.Time("timer1");
+            await console.TimeAsync("timer1");
 
-            console.Log("A log message");
-            console.Log("A log message");
+            await console.LogAsync("A log message");
+            await console.LogAsync("Another log message");
             
-            using(console.GroupAsync())
+            using(await console.GroupAsync())
             {
-                console.Log("A log message");
-                console.Log("A log message");
+                await console.LogAsync("A log message");
+                await console.LogAsync("Another log message");
             }
 
-
-            console.Log("A log message");
-            console.GroupCollapsed("With Label");
-            console.Log("A log message");
-            console.Debug("A debug message");
-            console.Log("A log message");
-            console.GroupEnd("With Label");
-            console.Log("A log message");
+            await console.LogAsync("A log message");
+            await console.GroupCollapsedAsync("With Label");
+            await console.LogAsync("A log message");
+            await console.DebugAsync("A debug message");
+            await console.LogAsync("A log message");
+            await console.GroupEndAsync("With Label");
+            await console.LogAsync("A log message");
             
             // output a trace
-            console.Trace();
+            await console.TraceAsync();
 
             using(await console.GroupAsync("Grouped Messages"))
             {
-                console.Log("A log message");
-                console.Info("An info message");
-                console.Warn("A warning message");
-                console.Error("An error message");
+                await console.LogAsync("A log message");
+                await console.InfoAsync("An info message");
+                await console.WarnAsync("A warning message");
+                await console.ErrorAsync("An error message");
             }
 
-            console.TimeEnd("timer1");
+            await console.TimeEndAsync("timer1");
 
-            console.Dir(new { Prop1 = "test1", Prop2 = "test2" });
+            await console.DirAsync(new { Prop1 = "test1", Prop2 = "test2" });
 
-            console.Table(
+            await console.TableAsync(
                 new TestObject[]
                 {
                     new TestObject{ Test1 = "test1a", Test2 = "test1b" },
