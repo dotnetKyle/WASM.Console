@@ -49,7 +49,7 @@ jobs:
     - name: Display structure of downloaded files
       run: ls -R
     - name: Push MinimalCommandLine Nuget
-      run: dotnet nuget push ./WASM.Console/bin/Release/WASMConsole.0.0.${{github.run_number}}-alpha.nupkg --api-key ${{secrets.NUGETKEY}} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./WASM.Console/bin/Release/WASM.Console.0.0.${{github.run_number}}-alpha.nupkg --api-key ${{secrets.NUGETKEY}} --source https://api.nuget.org/v3/index.json
 
   production:
     needs: integration
