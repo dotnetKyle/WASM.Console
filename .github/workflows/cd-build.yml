@@ -20,16 +20,16 @@ jobs:
       
     - name: Build WASM Console
       run: dotnet build src/WASM.Console/WASM.Console.csproj 
-      -c Release 
-      --no-restore 
-      -f net6.0
+        -c Release 
+        --no-restore 
+        -f net6.0
       
       # packs all nuget packages at once 
     - name: Pack WASM Console Nuget
       run: dotnet pack src/WASM.Console/WASM.Console.csproj 
-      -c Release 
-      --no-build 
-      -p:PackageVersion=0.0.${{github.run_number}}
+        -c Release 
+        --no-build 
+        -p:PackageVersion=0.0.${{github.run_number}}
       
     - name: Publish WASM Console Artifacts
       uses: actions/upload-artifact@v2
@@ -51,5 +51,5 @@ jobs:
         
     - name: Push MinimalCommandLine Nuget
       run: dotnet nuget push ./System.CommandLine.Minimal/bin/Release/WASM.Console.0.0.${{github.run_number}}.nupkg 
-      --api-key ${{secrets.NUGETKEY}} 
-      --source https://api.nuget.org/v3/index.json
+        --api-key ${{secrets.NUGETKEY}} 
+        --source https://api.nuget.org/v3/index.json
