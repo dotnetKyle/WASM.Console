@@ -7,8 +7,9 @@ Supports: `console.log`, `console.debug`, `console.info`, `console.warn`, `conso
 
 Add the following nuget package:
 
+dotnet CLI:
 ```powershell
-nuget install WASM.Console
+dotnet add package WASM.Console
 ```
 
 Example:
