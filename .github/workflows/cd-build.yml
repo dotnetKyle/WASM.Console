@@ -53,6 +53,6 @@ jobs:
         
     - name: Push MinimalCommandLine Nuget
       run: >
-        dotnet nuget push ./System.CommandLine.Minimal/bin/Release/WASM.Console.0.0.${{github.run_number}}.nupkg 
+        dotnet nuget push ./WASM.Console/bin/Release/WASM.Console.0.0.${{github.run_number}}.nupkg 
         --api-key ${{secrets.NUGETKEY}} 
         --source https://api.nuget.org/v3/index.json
