@@ -4,7 +4,19 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <Title>WASM Console</Title>
+    <Description>A WASM library for logging messages to the browsers console.</Description>
+    <RepositoryUrl>https://github.com/dotnetKyle/WASM.Console</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>WASM;console;JavaScript;Logger;Blazor;Web</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.JSInterop.WebAssembly" Version="6.0.9" />
