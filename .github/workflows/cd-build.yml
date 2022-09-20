@@ -19,11 +19,7 @@ jobs:
       run: dotnet restore src/WASM.Console/WASM.Console.csproj
       
     - name: Build WASM Console
-      run: >
-        dotnet build src/WASM.Console/WASM.Console.csproj 
-        -c Release 
-        --no-restore 
-        -f net6.0
+      run: dotnet build src/WASM.Console/WASM.Console.csproj -c Release --no-restore -f net6.0
       
       # packs all nuget packages at once 
     - name: Pack WASM Console Nuget
