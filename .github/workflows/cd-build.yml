@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 9.0.x
         
     - name: Restore dependencies
       run: dotnet restore src/WASM.Console/WASM.Console.csproj
@@ -23,7 +23,7 @@ jobs:
         dotnet build src/WASM.Console/WASM.Console.csproj 
         -c Release 
         --no-restore 
-        -f net6.0
+        -f net8.0
       
       # packs all nuget packages at once 
     - name: Pack WASM Console Nuget
@@ -31,10 +31,10 @@ jobs:
         dotnet pack src/WASM.Console/WASM.Console.csproj 
         -c Release 
         --no-build 
-        -p:PackageVersion=0.0.${{github.run_number}}
+        -p:PackageVersion=8.0.0.${{github.run_number}}
       
     - name: Publish WASM Console Artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Nugets
         path: src/**/bin/**/*.nupkg
@@ -51,8 +51,8 @@ jobs:
       with:
         name: Nugets
         
-    - name: Push MinimalCommandLine Nuget
+    - name: Push Nuget
       run: >
-        dotnet nuget push ./WASM.Console/bin/Release/WASM.Console.0.0.${{github.run_number}}.nupkg 
+        dotnet nuget push ./WASM.Console/bin/Release/WASM.Console.8.0.0.${{github.run_number}}.nupkg 
         --api-key ${{secrets.NUGETKEY}} 
         --source https://api.nuget.org/v3/index.json
