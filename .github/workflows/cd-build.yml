@@ -34,7 +34,7 @@ jobs:
         -p:PackageVersion=8.0.0.${{github.run_number}}
       
     - name: Publish WASM Console Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Nugets
         path: src/**/bin/**/*.nupkg
